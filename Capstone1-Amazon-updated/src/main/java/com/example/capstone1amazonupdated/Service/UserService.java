@@ -46,13 +46,6 @@ public class UserService {
                 allUsers.get(i).setRegistrationDate(uodateDateToTest);
                 allUsers.get(i).setBalance(user.getBalance());
                 buyedProduct.setUserID(user.getId());
-                buyedProduct.setBalance(user.getBalance());
-                buyedProduct.setPoints(user.getPoints());
-                buyedProduct.setPassword(user.getPassword());
-                buyedProduct.setRole(user.getRole());
-                buyedProduct.setRegistrationDate(uodateDateToTest);
-                buyedProduct.setEmail(user.getEmail());
-                buyedProduct.setUserName(user.getUserName());
                 buyedProductRepository.save(buyedProduct);
                 allUsers.get(i).setPoints(user.getPoints());
                 userRepository.save(allUsers.get(i));
@@ -95,32 +88,14 @@ public class UserService {
                                         if (allProducts.get(k).getId().equals(productID)) {
                                             if (buyedProduct == null) {
                                                 buyedProduct.setUserID(allUser.get(j).getId());
-                                                buyedProduct.setBalance(allUser.get(j).getBalance());
-                                                buyedProduct.setPoints(allUser.get(j).getPoints());
-                                                buyedProduct.setPassword(allUser.get(j).getPassword());
-                                                buyedProduct.setRole(allUser.get(j).getRole());
-                                                buyedProduct.setRegistrationDate(allUser.get(j).getRegistrationDate());
-                                                buyedProduct.setEmail(allUser.get(j).getEmail());
-                                                buyedProduct.setUserName(allUser.get(j).getUserName());
                                                 buyedProduct.setProductID(allProducts.get(k).getId());
-                                                buyedProduct.setName(allProducts.get(k).getName());
-                                                buyedProduct.setPrice(allProducts.get(k).getPrice());
                                                 buyedProduct.setCategoryID(allProducts.get(k).getCategoryID());
                                                 buyedProductRepository.save(buyedProduct);
                                                 //allUser.get(j).setBuyedProducts(new ArrayList<Product>());
                                                 //allUser.get(j).addBuyedProduct(allProducts.get(k));
                                             }else {
                                                 buyedProduct.setUserID(allUser.get(j).getId());
-                                                buyedProduct.setBalance(allUser.get(j).getBalance());
-                                                buyedProduct.setPoints(allUser.get(j).getPoints());
-                                                buyedProduct.setPassword(allUser.get(j).getPassword());
-                                                buyedProduct.setRole(allUser.get(j).getRole());
-                                                buyedProduct.setRegistrationDate(allUser.get(j).getRegistrationDate());
-                                                buyedProduct.setEmail(allUser.get(j).getEmail());
-                                                buyedProduct.setUserName(allUser.get(j).getUserName());
                                                 buyedProduct.setProductID(allProducts.get(k).getId());
-                                                buyedProduct.setName(allProducts.get(k).getName());
-                                                buyedProduct.setPrice(allProducts.get(k).getPrice());
                                                 buyedProduct.setCategoryID(allProducts.get(k).getCategoryID());
                                                 buyedProductRepository.save(buyedProduct);
                                             }
@@ -272,16 +247,7 @@ public class UserService {
                         if (allUser.get(j).getId() == userID ) {
                             allUser.get(j).setPoints(allUser.get(j).getPoints()-pointsToDeduct);
                             buyedProduct.setUserID(allUser.get(j).getId());
-                            buyedProduct.setBalance(allUser.get(j).getBalance());
-                            buyedProduct.setPoints(allUser.get(j).getPoints());
-                            buyedProduct.setPassword(allUser.get(j).getPassword());
-                            buyedProduct.setRole(allUser.get(j).getRole());
-                            buyedProduct.setRegistrationDate(allUser.get(j).getRegistrationDate());
-                            buyedProduct.setEmail(allUser.get(j).getEmail());
-                            buyedProduct.setUserName(allUser.get(j).getUserName());
                             buyedProduct.setProductID(allProducts.get(i).getId());
-                            buyedProduct.setName(allProducts.get(i).getName());
-                            buyedProduct.setPrice(allProducts.get(i).getPrice());
                             buyedProduct.setCategoryID(allProducts.get(i).getCategoryID());
                             buyedProductRepository.save(buyedProduct);
                             return "Product purchased successfully using points!";
